@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1> User Scores </h1>
-    <b-table striped hover :items="users"></b-table>
+    <b-table striped hover dark :items="users"></b-table>
   </div>
 </template>
 

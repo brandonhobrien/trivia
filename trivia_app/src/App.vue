@@ -2,9 +2,10 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/Catagories">Catagories</router-link>|
-      <router-link to="/Users">Users</router-link>|
-      <router-link to="/UserProfile">User Profile</router-link>
+      <router-link to="/catagories">Catagories</router-link> |
+      <router-link to="/users">Users</router-link> |
+      <router-link to="/userprofile">User Profile</router-link> |
+      <router-link to="/catagory">Catagory</router-link>
     </div>
     <b-container>
       <router-view/>
