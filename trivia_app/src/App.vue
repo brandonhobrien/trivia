@@ -5,7 +5,7 @@
       <router-link to="/catagories">Catagories</router-link> |
       <router-link to="/users">Users</router-link> |
       <router-link to="/userprofile">User Profile</router-link> |
-      <router-link to="/catagory">Catagory</router-link>
+      <router-link to="/catagory/testing">Catagory</router-link>
     </div>
     <b-container>
       <router-view/>

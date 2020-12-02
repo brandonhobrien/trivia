@@ -3,7 +3,7 @@
     <h1> Question Catagories </h1>
     <b-table striped hover dark :items="catagories">
       <template #cell(name)="data">
-        <a :href="`catagory/${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`">
+        <a :href="`catagory/${data.index}`">
           {{ data.value }}
         </a>
       </template>
