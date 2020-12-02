@@ -12,13 +12,16 @@
 </template>
 
 <script>
-import catagories from '@/data/catagories'
+import { mapState } from 'vuex'
 
 export default {
   data () {
-    return {
-      catagories
-    }
+    return {}
+  },
+  computed: {
+    ...mapState([
+      'catagories'
+    ])
   }
 }
 </script>
