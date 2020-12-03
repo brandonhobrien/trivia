@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1> Catagory: {{ currentCat().name }} </h1>
-    <h2> Creator: {{ currentCat().creator }} </h2>
+    <h1> Catagory: {{ curCat.name }} </h1>
+    <h2> Creator: {{ curCat.creator }} </h2>
   </div>
 </template>
 
@@ -10,18 +10,21 @@ import { mapState } from 'vuex'
 
 export default {
   data () {
-    return {}
+    return {
+      curCat: {},
+      curCatIndex: {}
+    }
   },
   computed: {
     ...mapState([
       'catagories'
     ])
   },
-  methods: {
-    currentCat () {
-      const curCat = this.catagories[this.$route.params.id]
-      return curCat
-    }
+  mounted () {
+    const curCatIndex = this.catagories.findIndex((element) => element.name === this.$route.params.id)
+    const curCat = this.catagories[curCatIndex]
+    this.curCat = curCat
+    this.curCatIndex = curCatIndex
   }
 }
 </script>

@@ -1,22 +1,18 @@
 export default [
   {
-    age: 40,
-    first_name: 'Dickerson',
-    last_name: 'Macdonald'
+    name: 'Sam Hulme',
+    score: 10
   },
   {
-    age: 21,
-    first_name: 'Larsen',
-    last_name: 'Shaw'
+    name: 'Tristan Bosman',
+    score: 7
   },
   {
-    age: 89,
-    first_name: 'Geneva',
-    last_name: 'Wilson'
+    name: 'Michael Baber',
+    score: 12
   },
   {
-    age: 38,
-    first_name: 'Jami',
-    last_name: 'Carney'
+    name: 'Brandon OBrien',
+    score: 115
   }
 ]
