@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1> Question Catagories </h1>
+    <button class="btn tbn-primary">Add New Catagory</button>
     <b-table striped hover dark
     :items="catagories"
     :fields="fields"
@@ -22,6 +23,7 @@ import { mapState } from 'vuex'
 export default {
   data () {
     return {
+      showCatagoryForm: false,
       sortBy: 'name',
       sortDesc: false,
       fields: [
@@ -34,6 +36,11 @@ export default {
     ...mapState([
       'catagories'
     ])
+  },
+  methods: {
+    toggleCatagoryForm () {
+      this.showCatagoryForm = !this.showCatagoryForm
+    }
   }
 }
 </script>
