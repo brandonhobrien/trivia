@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1> Question Catagories </h1>
+    <p> Total Catagories: {{ catagoryCount }}
     <button @click="toggleCatagoryForm" class="btn tbn-primary">Add New Catagory</button>
 
     <div>
@@ -14,7 +15,7 @@
           <label for="creatorName">Your Name:</label>
           <input type="creator" class="form-control" id="exampleName" aria-describedby="nameHelp" v-model="formData.creator" placeholder="Jane Doe">
         </div>
-        <button @submit.prevent="handleSubmit" type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-primary">Reset</button>
       </form>
     </div>
@@ -35,7 +36,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
   data () {
@@ -55,6 +56,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'catagoryCount'
+    ]),
     ...mapState([
       'catagories'
     ])
@@ -77,6 +81,14 @@ export default {
         }
       }
       this.addCatagory(payload)
+
+      // reset form after submit
+      this.formData = {
+        name: '',
+        creator: ''
+      }
+      // hides the input table
+      this.showCatagoryForm = !this.showCatagoryForm
     }
   }
 }
