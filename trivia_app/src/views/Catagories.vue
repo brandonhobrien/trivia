@@ -3,20 +3,21 @@
     <h1> Question Catagories </h1>
     <button @click="toggleCatagoryForm" class="btn tbn-primary">Add New Catagory</button>
 
-    <form @submit="handleSubmit" v-if="showCatagoryForm">
-      <div class="form-group">
-        <label for="catagoryName">Catagory Name:</label>
-        <input type="catagory" class="form-control" id="exampleCatagory" aria-describedby="catagoryHelp">
-        <small id="emailHelp" class="form-text text-muted">Something that can have atleast 10 questions.</small>
-      </div>
-      <div class="form-group">
-        <label for="creatorName">Your Name:</label>
-        <input type="creator" class="form-control" id="exampleName" aria-describedby="nameHelp">
-        <small id="creatorHelp" class="form-text text-muted">Just put in your dumb face name.</small>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <button type="reset" class="btn btn-primary">Reset</button>
-    </form>
+    <div>
+      <form @submit.prevent="handleSubmit" v-if="showCatagoryForm">
+        <div class="form-group">
+          <label for="catagoryName">Catagory Name:</label>
+          <input type="catagory" class="form-control" id="exampleCatagory" aria-describedby="catagoryHelp" v-model="formData.name" placeholder="Catagory Example">
+          <small id="emailHelp" class="form-text text-muted">Something that can have atleast 10 questions.</small>
+        </div>
+        <div class="form-group">
+          <label for="creatorName">Your Name:</label>
+          <input type="creator" class="form-control" id="exampleName" aria-describedby="nameHelp" v-model="formData.creator" placeholder="Jane Doe">
+        </div>
+        <button @submit.prevent="handleSubmit" type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-primary">Reset</button>
+      </form>
+    </div>
 
     <b-table striped hover dark
     :items="catagories"
@@ -34,14 +35,15 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   data () {
     return {
       showCatagoryForm: false,
       formData: {
-
+        name: '',
+        creator: ''
       },
 
       sortBy: 'name',
@@ -58,11 +60,19 @@ export default {
     ])
   },
   methods: {
+    ...mapActions([
+      'addCatagory'
+    ]),
     toggleCatagoryForm () {
       this.showCatagoryForm = !this.showCatagoryForm
     },
     handleSubmit () {
-
+      const { name, creator } = this.formData
+      const payload = {
+        name,
+        creator
+      }
+      this.catagories.push(payload)
     }
   }
 }

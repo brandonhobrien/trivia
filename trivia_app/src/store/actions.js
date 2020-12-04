@@ -1,5 +1,6 @@
+// not working. pushing directly to array in catagories.vue
 export default {
-  addCat: ({ commit }, payload) => {
-    commit('appendCat', payload)
+  addCatagory: ({ commit }, payload) => {
+    commit('appendCatagory', payload)
   }
 }
