@@ -1,6 +1,6 @@
-// not working. pushing directly to array in catagories.vue
+
 export default {
-  appendCatagory: (state, payload) => {
-    state.catagoies.push(payload)
+  appendCatagory: (state, { catagories, payload }) => {
+    state[catagories].push(payload)
   }
 }

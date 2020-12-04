@@ -68,11 +68,15 @@ export default {
     },
     handleSubmit () {
       const { name, creator } = this.formData
+      const catagories = 'catagories'
       const payload = {
-        name,
-        creator
+        catagories,
+        payload: {
+          name,
+          creator
+        }
       }
-      this.catagories.push(payload)
+      this.addCatagory(payload)
     }
   }
 }
